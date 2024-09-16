@@ -30,6 +30,7 @@ jobs:
           echo "DOCKER_HUB_PASSWORD is not set"
           exit 1
         fi
+      shell: bash
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
@@ -44,6 +45,8 @@ jobs:
       run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/my-flask-app:latest
 
     - name: Cleanup local Docker images
+      run: docker rmi my-flask-app:latest ${{ secrets.DOCKER_HUB_USERNAME }}/my-flask-app:latest
+
       run: docker rmi my-flask-app:latest ${{ secrets.DOCKER_HUB_USERNAME }}/my-flask-app:latest
 
 
