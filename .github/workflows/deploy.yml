@@ -22,10 +22,6 @@ jobs:
 
     - name: Verify Docker Hub credentials
       run: |
-        if [ -z "${{ secrets.DOCKER_HUB_USERNAME }}" ]; then
-          echo "DOCKER_HUB_USERNAME is not set"
-          exit 1
-        fi
         if [ -z "${{ secrets.DOCKER_HUB_PASSWORD }}" ]; then
           echo "DOCKER_HUB_PASSWORD is not set"
           exit 1
