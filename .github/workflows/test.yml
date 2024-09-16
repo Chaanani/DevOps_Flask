@@ -30,7 +30,7 @@ jobs:
 
     - name: Run unit tests inside the container
       run: |
-        docker exec $(docker ps -q -f ancestor=my-flask-app) pytest --junitxml=reports/test-results.xml
+        docker exec $(docker ps -q -f ancestor=my-flask-app) pytest test --junitxml=reports/test-results.xml
 
     - name: Upload test results as artifact
       uses: actions/upload-artifact@v3
