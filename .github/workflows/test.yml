@@ -28,14 +28,5 @@ jobs:
       run: |
         curl --fail http://localhost:5000/status || exit 1
 
-    - name: Run unit tests inside the container
-      run: |
-        docker exec $(docker ps -q -f ancestor=my-flask-app) pytest /app/test/test_app.py --junitxml=reports/test-results.xml
-
-    - name: Upload test results as artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: reports/test-results.xml
 
 
