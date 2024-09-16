@@ -10,7 +10,7 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-COPY src/app.py /app/app.py
+COPY . /app
 
 
 EXPOSE 5000
