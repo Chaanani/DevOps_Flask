@@ -1,7 +1,7 @@
 name: Deploy Job
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   deploy:
@@ -16,6 +16,7 @@ jobs:
       with:
         name: docker-image
         path: artifacts/
+
     - name: Load Docker image
       run: docker load -i artifacts/my-flask-app.tar
     - name: Log in to Docker Hub
