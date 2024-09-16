@@ -35,3 +35,4 @@ jobs:
     - name: Cleanup local Docker images
       run: docker rmi my-flask-app:latest ${{ secrets.DOCKER_HUB_USERNAME }}/my-flask-app:latest
 
+
